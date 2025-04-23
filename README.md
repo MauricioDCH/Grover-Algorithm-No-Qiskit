@@ -144,11 +144,9 @@ def to_superindice(n):
 
 ## 3. Construcción del Estado Inicial
 
-La función `initial_state(n_qubits)` construye el estado $ |\psi_0\rangle $, que representa una superposición uniforme de todos los posibles estados del sistema:
-$$
-|\psi_0\rangle = H^{\otimes n} |0\rangle^{\otimes n}
-$$
-Esto se logra aplicando la puerta de Hadamard a cada uno de los qubits partiendo del estado base $ |0...0\rangle $.
+La función `initial_state(n_qubits)` construye el estado $|\psi_0\rangle$, que representa una superposición uniforme de todos los posibles estados del sistema:
+$$|\psi_0\rangle = H^{\otimes n} |0\rangle^{\otimes n}$$
+Esto se logra aplicando la puerta de Hadamard a cada uno de los qubits partiendo del estado base $|0...0\rangle$.
 
 ```python
 # -------------------------------------------------------
