@@ -166,14 +166,12 @@ def initial_state(n_qubits):
 
 ## 4. Implementación del Oráculo Cuántico
 
-El oráculo cuántico $ U_f $ implementa una función booleana que devuelve 1 solo para el estado objetivo $ x_0 $. A nivel matricial, esto se representa como una matriz identidad con una inversión de fase (-1) únicamente en la posición correspondiente al estado objetivo:
-$$
-U_f |x\rangle = 
+El oráculo cuántico $U_f$ implementa una función booleana que devuelve 1 solo para el estado objetivo $x_0$. A nivel matricial, esto se representa como una matriz identidad con una inversión de fase (-1) únicamente en la posición correspondiente al estado objetivo:
+$$U_f |x\rangle = 
 \begin{cases}
 -|x\rangle, & \text{si } f(x) = 1 \\
 |x\rangle, & \text{si } f(x) = 0
-\end{cases}
-$$
+\end{cases}$$
 La matriz se construye dinámicamente en la función `Uf_matrix(n_qubits, f)`, iterando sobre los posibles índices del estado.
 
 ```python
@@ -201,11 +199,9 @@ def Uf_matrix(n_qubits, f):
 
 ## 5. Matriz de Difusión (Difusor de Grover)
 
-Una parte crítica del algoritmo de Grover es la **difusión**, que realiza una inversión sobre la media. Esto se conoce como el operador de Grover $ D $, y se expresa como:
-$$
-D = 2|s\rangle\langle s| - I
-$$
-En este código, se construye esta matriz utilizando el estado inicial $ |\psi_0\rangle $, y una matriz identidad $ I $. Esta operación amplifica la amplitud del estado marcado mientras disminuye la de los demás, lo cual mejora la probabilidad de medir la respuesta correcta.
+Una parte crítica del algoritmo de Grover es la **difusión**, que realiza una inversión sobre la media. Esto se conoce como el operador de Grover $D$, y se expresa como:
+$$D = 2|s\rangle\langle s| - I$$
+En este código, se construye esta matriz utilizando el estado inicial $|\psi_0\rangle$, y una matriz identidad $I$. Esta operación amplifica la amplitud del estado marcado mientras disminuye la de los demás, lo cual mejora la probabilidad de medir la respuesta correcta.
 
 ```python
 # -------------------------------------------------------
@@ -223,7 +219,7 @@ def operador_difusion(n_qubits, estado):
 
 Al final del proceso, se mide el estado resultante y se imprime una tabla que muestra:
 
-- Los estados base $ |x\rangle $
+- Los estados base $|x\rangle$
 - Sus amplitudes complejas
 - La fase asociada (en múltiplos de π)
 
@@ -271,11 +267,11 @@ def mostrar_fases_estado(estado, n_qubits):
 
 ## 7. Algoritmo de Grover completo
 
-El algoritmo de Grover es una técnica cuántica con una complejidad de $ O(\sqrt{N}) $, mejorando significativamente el rendimiento comparado con los algoritmos clásicos, cuya complejidad es $ O(N) $.
+El algoritmo de Grover es una técnica cuántica con una complejidad de $O(\sqrt{N})$, mejorando significativamente el rendimiento comparado con los algoritmos clásicos, cuya complejidad es $O(N)$.
 
 En esta sección se implementa la **ejecución completa** del algoritmo de Grover. El proceso consta de las siguientes etapas:
 
-Dado un número de qubits $ n $, se quiere encontrar un elemento objetivo dentro de un espacio de búsqueda de tamaño $ N = 2^n $. El objetivo está representado por un número decimal específico que se codifica en binario para definir la función booleana $ f(x) $, utilizada por el **oráculo cuántico** $ U_f $.
+Dado un número de qubits $n$, se quiere encontrar un elemento objetivo dentro de un espacio de búsqueda de tamaño $N = 2^n$. El objetivo está representado por un número decimal específico que se codifica en binario para definir la función booleana $f(x)$, utilizada por el **oráculo cuántico** $U_f$.
 
 
 ### Parámetros del algoritmo
@@ -283,24 +279,19 @@ Dado un número de qubits $ n $, se quiere encontrar un elemento objetivo dentro
 La función `algoritmo_grover` recibe como argumentos:
 
 - `n_qubits`: número de qubits en el sistema, que determina el espacio de búsqueda.
-- `f`: función booleana $ f(x) $, que retorna `1` si `x` es la solución, y `0` en caso contrario.
+- `f`: función booleana $f(x)$, que retorna `1` si `x` es la solución, y `0` en caso contrario.
 - `objetivo`: el elemento que se busca.
-- `iteraciones` *(opcional)*: número de veces que se aplican los operadores $ U_f $ (oráculo) y $ D $ (difusión). Si no se especifica, se calcula el número óptimo como:
+- `iteraciones` *(opcional)*: número de veces que se aplican los operadores $U_f$ (oráculo) y $D$ (difusión). Si no se especifica, se calcula el número óptimo como:
 
-$$
-R = \left\lfloor \frac{\pi}{4} \sqrt{N} \right\rfloor
-$$
+$$R = \left\lfloor \frac{\pi}{4} \sqrt{N} \right\rfloor$$
 
 ### Paso 1: Inicialización del estado
 
-Se construye el estado inicial $|s\rangle$ aplicando compuertas Hadamard $ H^{\otimes n} $ al estado base $|0\rangle^{\otimes n}$. Esto genera una **superposición uniforme**:
+Se construye el estado inicial $|s\rangle$ aplicando compuertas Hadamard $H^{\otimes n}$ al estado base $|0\rangle^{\otimes n}$. Esto genera una **superposición uniforme**:
 
-$$
-|s\rangle = \frac{1}{\sqrt{N}} \sum_{x=0}^{N-1} |x\rangle
-$$
+$$|s\rangle = \frac{1}{\sqrt{N}} \sum_{x=0}^{N-1} |x\rangle$$
 
 Esta superposición representa la incertidumbre total sobre la posición del objetivo.
-
 
 ### Paso 2: Construcción de operadores
 
@@ -308,28 +299,23 @@ Se construyen dos matrices unitarias clave:
 
 - **$ U_f $**: el **oráculo cuántico**, que invierte el signo del estado correspondiente al objetivo:
 
-  $$
-  U_f |x\rangle = (-1)^{f(x)} |x\rangle
-  $$
+  $$U_f |x\rangle = (-1)^{f(x)} |x\rangle$$
 
 - **$ D $**: el **operador de difusión**, también llamado inversión sobre la media, que amplifica la probabilidad del estado objetivo. Matemáticamente:
 
-  $$
-  D = 2|s\rangle\langle s| - I
-  $$
+  $$D = 2|s\rangle\langle s| - I$$
 
-  donde $ I $ es la matriz identidad con N filas y columnas.
+  donde $I$ es la matriz identidad con N filas y columnas.
 
 
 ### Paso 3: Iteración del algoritmo
 
 El núcleo del algoritmo consiste en aplicar repetidamente la combinación de los dos operadores:
 
-1. Se aplica el oráculo $ U_f $ al estado.
-2. Se aplica el operador de difusión $ D $.
+1. Se aplica el oráculo $U_f$ al estado.
+2. Se aplica el operador de difusión $D$.
 
-Este proceso se repite $ R $ veces, donde cada iteración incrementa la amplitud del estado objetivo y reduce la de los demás.
-
+Este proceso se repite $R$ veces, donde cada iteración incrementa la amplitud del estado objetivo y reduce la de los demás.
 
 ### Paso 4: Resultado
 
