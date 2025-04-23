@@ -12,8 +12,7 @@ Se parte de la definición de elementos fundamentales de la computación cuánti
 El estado $|-\rangle$ es especialmente importante porque se utiliza como qubit ancilla en la construcción del oráculo de Grover. Este se define como:
 
 #### Estados base:
-$$
-|0\rangle = 
+$$|0\rangle = 
 \begin{bmatrix}
 1 \\
 0
@@ -27,8 +26,7 @@ $$
 \end{bmatrix}
 
 ,  \ \ \
-H|1\rangle = |-\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)
-$$
+H|1\rangle = |-\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)$$
 
 #### Estado de un qubit:
 $$
