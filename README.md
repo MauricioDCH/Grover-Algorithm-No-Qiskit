@@ -7,9 +7,9 @@ Implementar el algoritmo de Grover en un lenguaje de programación cualquiera ut
 
 ## 1. Fundamentos Cuánticos Implementados
 
-Se parte de la definición de elementos fundamentales de la computación cuántica. Entre ellos se incluyen las compuertas cuánticas (como la compuertas de Hadamard) y los estados base de los qubits, tales como $ |0\rangle $, $ |1\rangle $, y $ |-\rangle $. La representación matricial de estos elementos permite simular la evolución de estados cuánticos en Python usando álgebra lineal.
+Se parte de la definición de elementos fundamentales de la computación cuántica. Entre ellos se incluyen las compuertas cuánticas (como la compuertas de Hadamard) y los estados base de los qubits, tales como $|0\rangle$, $|1\rangle$, y $|-\rangle$. La representación matricial de estos elementos permite simular la evolución de estados cuánticos en Python usando álgebra lineal.
 
-El estado $ |-\rangle $ es especialmente importante porque se utiliza como qubit ancilla en la construcción del oráculo de Grover. Este se define como:
+El estado $|-\rangle$ es especialmente importante porque se utiliza como qubit ancilla en la construcción del oráculo de Grover. Este se define como:
 
 #### Estados base:
 $$
