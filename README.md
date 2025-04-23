@@ -165,13 +165,11 @@ def initial_state(n_qubits):
 ## 4. Implementación del Oráculo Cuántico
 
 El oráculo cuántico $U_f$ implementa una función booleana que devuelve 1 solo para el estado objetivo $x_0$. A nivel matricial, esto se representa como una matriz identidad con una inversión de fase (-1) únicamente en la posición correspondiente al estado objetivo:
-$$
-U_f |x\rangle = 
+$$U_f |x\rangle = 
 \begin{cases} 
 - |x\rangle, & \text{si } f(x) = 1 \\ 
 \ \ |x\rangle, & \text{si } f(x) = 0 
-\end{cases}
-$$
+\end{cases}$$
 
 
 La matriz se construye dinámicamente en la función `Uf_matrix(n_qubits, f)`, iterando sobre los posibles índices del estado.
