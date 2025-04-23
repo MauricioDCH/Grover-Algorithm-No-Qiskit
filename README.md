@@ -1,6 +1,6 @@
 # Simulación del Algoritmo de Grover en Python
 
-El Algoritmo de Grover es una técnica de búsqueda cuántica que ofrece una aceleración cuadrática respecto a los algoritmos clásicos. Su objetivo es encontrar una entrada $ x $ para la cual una función $ f(x) $ devuelve $1$, dentro de un espacio de búsqueda no estructurado. Esta implementación en Python simula el comportamiento de dicho algoritmo sin utilizar librerías específicas de computación cuántica como Qiskit, lo que permite observar el funcionamiento de los operadores cuánticos desde la matemática de matrices.
+El Algoritmo de Grover es una técnica de búsqueda cuántica que ofrece una aceleración cuadrática respecto a los algoritmos clásicos. Su objetivo es encontrar una entrada $x$ para la cual una función $f(x)$ devuelve $1$, dentro de un espacio de búsqueda no estructurado. Esta implementación en Python simula el comportamiento de dicho algoritmo sin utilizar librerías específicas de computación cuántica como Qiskit, lo que permite observar el funcionamiento de los operadores cuánticos desde la matemática de matrices.
 
 ## 0. Enunciado del proyecto.
 Implementar el algoritmo de Grover en un lenguaje de programación cualquiera utilizando operaciones matriciales. No se pueden utilizar librerías ni bibliotecas de funciones que implementen operaciones cuánticas. El programa debe recibir el tamaño del problema y la funcion oráculo como un parámetro, generar la matriz y generar el circuito que implemente el algoritmo de Grover para esa función oráculo. 
