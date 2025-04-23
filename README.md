@@ -18,13 +18,11 @@ $$|0\rangle =
 0
 \end{bmatrix}
 ,  \ \ \
-
 |1\rangle = 
 \begin{bmatrix}
 0 \\
 1
 \end{bmatrix}
-
 ,  \ \ \
 H|1\rangle = |-\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)$$
 
